@@ -83,6 +83,14 @@ public class ErweitertesAuto extends EinfachesAuto{
 		
 	}
 	
+	public void MeldungUnfallfahrzeug() {
+		if(unfallfahrzeug) {
+			System.out.println("\n Das Fahrzeug ist ein Unfallfahrzeug");
+		} else {
+			System.out.println("\n Das Fahrzeug ist kein Unfallfahrzeug");
+		}
+	}
+	
 	
 	
 	/**
