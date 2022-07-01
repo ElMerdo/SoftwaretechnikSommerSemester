@@ -4,6 +4,15 @@ public class ErweitertesAuto extends EinfachesAuto{
 
 	private static String standort;
 	private String fahrgestellnummer;
+	private static boolean unfallfahrzeug; 
+
+	public boolean getIstUnfallfahrzeug() {
+		return unfallfahrzeug;
+	}
+
+	public void setUnfallfahrzeug(boolean unfallfahrzeug) {
+		ErweitertesAuto.unfallfahrzeug = unfallfahrzeug;
+	}
 	
 	public static String getStandort() {
 		return standort;
@@ -74,8 +83,8 @@ public class ErweitertesAuto extends EinfachesAuto{
      */
      
 	public void SetzeNeuesZiel(String ziel, int entfernung) {
-		System.out.println("Das Auto fährt von " + getStandort() + " nach " + ziel + ".");
-		System.out.println("Die Entfernung beträgt " + entfernung + "km.");
+		System.out.println("Das Auto fï¿½hrt von " + getStandort() + " nach " + ziel + ".");
+		System.out.println("Die Entfernung betrï¿½gt " + entfernung + "km.");
 		ErweitertesAuto.setKmStand(getKmStand() + entfernung);
 		standort = ziel;
 	}
