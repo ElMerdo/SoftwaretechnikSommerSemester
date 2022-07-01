@@ -52,13 +52,14 @@ public class ErweitertesAuto extends EinfachesAuto{
      */
      
 	public ErweitertesAuto(String besitzer, String autotyp, String farbe, int erstzulassung, int leistung,
-			int kmStand, String standort, String fahrgestellnummer) {
+			int kmStand, String standort, String fahrgestellnummer, boolean unfallfahrzeug) {
 		super(besitzer, autotyp, farbe, erstzulassung, leistung, kmStand);
 		if (kmStand < 0) {
 			throw new IllegalArgumentException();
 		}
 		ErweitertesAuto.standort = standort;
 		this.fahrgestellnummer = fahrgestellnummer;
+		ErweitertesAuto.unfallfahrzeug = unfallfahrzeug;
 	}
 	
 	/**
@@ -68,10 +69,17 @@ public class ErweitertesAuto extends EinfachesAuto{
      */
 	
 	public String toString() {
-		String string1 = "Das Auto von " + EinfachesAuto.getBesitzer() + " in der Farbe " + EinfachesAuto.getFarbe() + " mit " + EinfachesAuto.getLeistung() +  
+		String unfallfahrzeugString;
+		if(unfallfahrzeug) {
+			unfallfahrzeugString = "Das Fahrzeug ist ein Unfallfahrzeug";			
+		} else {
+			unfallfahrzeugString = "Das Fahrzeug ist kein Unfallfahrzeug";
+		}
+		
+		return "Das Auto von " + EinfachesAuto.getBesitzer() + " in der Farbe " + EinfachesAuto.getFarbe() + " mit " + EinfachesAuto.getLeistung() +  
 				         " PS und einen Kilometerstand von " + EinfachesAuto.getKmStand() + ". \r\nDie Erstzulassung war im Jahre " + EinfachesAuto.getErstzulassung() 
-				         + ", das Auto steht am Standort " + standort + " mit der Fahrgestellnummer " + fahrgestellnummer + ".";
-		return string1;
+				         + ", das Auto steht am Standort " + standort + " mit der Fahrgestellnummer " + fahrgestellnummer + "." + unfallfahrzeugString;
+		
 		
 	}
 	
