@@ -8,7 +8,7 @@ public class ErweitertesAutoTest {
 		try {
 			ErweitertesAuto pkw1 = new ErweitertesAuto("Hans2", "SUV", "Gr�n", 2010, 160, 80000, "Berlin", "S12U34V56", false);
 			pkw1.meldung();
-			pkw1.MeldungUnfallfahrzeug();
+			System.out.println(pkw1.MeldungUnfallfahrzeug(pkw1.getIstUnfallfahrzeug()));
 			System.out.print(". Das Auto ist " + pkw1.getAlter() + " Jahre alt.\n");
 			System.out.println(pkw1.toString());
 			System.out.println("Aktueller Kilometerstand: " + pkw1.getKmStand());
@@ -19,12 +19,14 @@ public class ErweitertesAutoTest {
 			e.printStackTrace();
 		} 
 		
+		
+		
 		ErweitertesAuto pkw3 = new ErweitertesAuto("Micha2", "Kleinwagen", "Grau", 2017, 70, 20, "Hamburg", "K12L34E56I78N90", true);
 		try {
 			System.out.println("\n\n Nun kommt der " + pkw3.getFarbe() + "e " + pkw3.getAutotyp() + " von " + pkw3.getBesitzer());
 			pkw3.meldung();
 			System.out.print(". Das Auto ist " + pkw3.getAlter() + " Jahre alt\n");
-			pkw3.MeldungUnfallfahrzeug();
+			System.out.println(pkw3.MeldungUnfallfahrzeug(pkw3.getIstUnfallfahrzeug()));
 		} catch (FalscheErstzulassungsAusnahme e) {
 			e.printStackTrace();
 		}
@@ -35,6 +37,14 @@ public class ErweitertesAutoTest {
 
 		System.out.println();
 		System.out.println("Projekt von Merdan Erdogan");
+		isJUnitTest();
 	}
+	public static void isJUnitTest() {  
+		  for (StackTraceElement element : Thread.currentThread().getStackTrace()) {
+		    if (element.getClassName().startsWith("org.junit.")) {
+		      System.out.println(true);			    }           
+		  }
+		  System.out.println(false);
+		}
 }
 

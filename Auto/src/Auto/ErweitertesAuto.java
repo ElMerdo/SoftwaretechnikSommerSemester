@@ -45,14 +45,14 @@ public class ErweitertesAuto extends EinfachesAuto{
      *            PS-Zahl des Autos
      * @param kmStand aus der Klasse EinfachesAuto
      *            Kilometerstand des Autos	
-	 * @param standort 
+     * @param standort
      *            Standort des Autos
 	 * @param fahrgestellnummer
      *            Fahrgestellnummer des Autos
      */
      
-	public ErweitertesAuto(String besitzer, String autotyp, String farbe, int erstzulassung, int leistung,
-			int kmStand, String standort, String fahrgestellnummer, boolean unfallfahrzeug) {
+	public ErweitertesAuto(String besitzer, String autotyp, String farbe, int erstzulassung, 
+		int leistung, int kmStand, String standort, String fahrgestellnummer, boolean unfallfahrzeug) {
 		super(besitzer, autotyp, farbe, erstzulassung, leistung, kmStand);
 		if (kmStand < 0) {
 			throw new IllegalArgumentException();
@@ -83,11 +83,11 @@ public class ErweitertesAuto extends EinfachesAuto{
 		
 	}
 	
-	public void MeldungUnfallfahrzeug() {
+	public String MeldungUnfallfahrzeug(boolean unfallfahrzeug) {
 		if(unfallfahrzeug) {
-			System.out.println("\n Das Fahrzeug ist ein Unfallfahrzeug");
+			return "\n Das Fahrzeug ist ein Unfallfahrzeug";
 		} else {
-			System.out.println("\n Das Fahrzeug ist kein Unfallfahrzeug");
+			return "\n Das Fahrzeug ist kein Unfallfahrzeug";
 		}
 	}
 	
